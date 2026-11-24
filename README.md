@@ -1,4 +1,5 @@
 # AudioDrop
+<<<<<<< HEAD
 
 A small Android app that accepts video links from YouTube and other yt-dlp-supported sites. It can save the full video or extract an MP3, with 320 kbps selected by default. You can paste a link or share one to AudioDrop from another app.
 
@@ -24,3 +25,6 @@ To rebuild, use JDK 17, Android SDK 35, and Gradle 8.13 with Android Gradle Plug
 - A 320 kbps output setting does not restore detail that was absent in the original audio.
 - The download engine dependency is licensed under GPL-3.0. Review its license obligations before redistributing a built app.
 - Only save content you own or have permission to download, and follow the source service's terms.
+=======
+🎵AudioDrop is an Android music downloader that makes downloading audio from YouTube simple and convenient. Explore the APK, source files, and project resources for a lightweight music downloading app designed for easy use, fast downloads, and a clean experience.
+>>>>>>> 35705024923e5c3dbdbcc636aaa82823d300615d

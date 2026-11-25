@@ -855,7 +855,6 @@ class MainActivity : Activity() {
     }
 
     private inner class DownloadsQuickScroller(private val scrollView: ScrollView) : View(this@MainActivity) {
-        private val trackPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.argb(75, 150, 155, 165) }
         private val thumbPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = accentColor }
         private var dragging = false
         private var dragOffset = 0f
@@ -869,7 +868,6 @@ class MainActivity : Activity() {
             val centerX = width / 2f
             val trackTop = inset
             val trackBottom = height - inset
-            canvas.drawRoundRect(RectF(centerX - dp(2), trackTop, centerX + dp(2), trackBottom), dp(4).toFloat(), dp(4).toFloat(), trackPaint)
             val maxScroll = (contentHeight - scrollView.height).coerceAtLeast(1)
             val thumbHeight = thumbHeight()
             val fraction = scrollView.scrollY.toFloat() / maxScroll
@@ -1277,6 +1275,7 @@ class MainActivity : Activity() {
         val scroll = ScrollView(this).apply {
             isFillViewport = true
             clipToPadding = true
+            isVerticalScrollBarEnabled = false
             setPadding(0, 0, dp(18), 0)
         }
         historyScrollView = scroll
@@ -1289,7 +1288,7 @@ class MainActivity : Activity() {
             contentDescription = "Quick scroll downloads"
         }
         listHost.addView(quickScroller, FrameLayout.LayoutParams(dp(16), -1, Gravity.END).apply {
-            rightMargin = dp(1)
+            rightMargin = -dp(2)
         })
         root.addView(listHost, LinearLayout.LayoutParams(-1, 0, 1f))
         scroll.setOnScrollChangeListener { _, _, scrollY, _, oldY ->
